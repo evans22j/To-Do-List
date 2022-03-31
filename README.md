@@ -29,11 +29,11 @@
 
 To get the content of this project locally you need to run this command in your terminal:
 
-- `https://github.com/evans22j/TO-DO-LIST.git`
+- `https://github.com/evans22j/To-Do-List.git`
 
 ### Setup
 
-- To clone the repository run this command `https://github.com/evans22j/TO-DO-LIST.git`
+- To clone the repository run this command `https://github.com/evans22j/To-Do-List.git`
 
 ## Test
 
@@ -66,7 +66,7 @@ For tracking linter errors locally you need to follow these steps:
 
 To get a local copy up and running follow these simple example steps.
 
-1. Clone the Repo or Download the Zip file and Extract by clicking here [GitHub Repo]{https://github.com/evans22j/TO-DO-LIST.git}
+1. Clone the Repo or Download the Zip file and Extract by clicking here [GitHub Repo]{https://github.com/evans22j/To-Do-List.git}
 2. mkdir the folder of your choice
 3. cd the folder
 4. git clone
