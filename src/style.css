@@ -1,8 +1,8 @@
 :root {
   --primary: rgb(71, 69, 69);
   --secondary: #ccc;
-  --border: rgb(221, 219, 219);
-  --background: rgb(243, 243, 243);
+  --border: rgb(221, 217, 217);
+  --background: rgb(236, 225, 225);
 }
 
 * {
