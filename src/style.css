@@ -113,12 +113,6 @@ form input::-webkit-input-placeholder {
   cursor: pointer;
 }
 
-/* .tasks-list li label.compeleted {
-  text-decoration: line-through;
-  font-style: italic;
-  color: var(--secondary);
-} */
-
 .tasks-list li i:hover {
   color: var(--primary);
   cursor: pointer;
