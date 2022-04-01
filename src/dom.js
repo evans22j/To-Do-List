@@ -67,6 +67,7 @@ const dom = (() => {
           taskId,
           form.elements[0].value,
         );
+
         renderTasks(tasks);
       });
     });
@@ -77,8 +78,8 @@ const dom = (() => {
     checkboxes.forEach((checkbox) => {
       checkbox.addEventListener('change', (e) => {
         const taskId = e.target.getAttribute('data-task-id');
-        taskActions.completeTask(taskId, e.target.checked);
-        window.location.reload();
+        const { tasks } = taskActions.completeTask(taskId, e.target.checked);
+        renderTasks(tasks);
       });
     });
   };

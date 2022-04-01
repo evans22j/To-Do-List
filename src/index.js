@@ -1,3 +1,5 @@
+
+  
 import './style.css';
 import storage from './storage.js';
 import taskActions from './taskActions.js';
@@ -25,7 +27,6 @@ form.addEventListener('submit', (e) => {
   task.add(savedTask);
   const tasks = task.get();
   dom.renderTasks(tasks);
-  todoTextInput.value = '';
 });
 
 getDefaultTasks();

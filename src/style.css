@@ -1,8 +1,10 @@
+
+  
 :root {
   --primary: rgb(71, 69, 69);
   --secondary: #ccc;
-  --border: rgb(221, 217, 217);
-  --background: rgb(236, 225, 225);
+  --border: rgb(221, 219, 219);
+  --background: rgb(243, 243, 243);
 }
 
 * {
@@ -102,16 +104,18 @@ form input::-webkit-input-placeholder {
   padding: 0.7rem 1.2rem;
 }
 
-.task-container button i {
-  font-size: 1.2rem;
-}
-
 .tasks-list li label {
   margin-left: 6px;
   font-size: inherit;
   color: var(--primary);
   cursor: pointer;
 }
+
+/* .tasks-list li label.compeleted {
+  text-decoration: line-through;
+  font-style: italic;
+  color: var(--secondary);
+} */
 
 .tasks-list li i:hover {
   color: var(--primary);
@@ -162,11 +166,7 @@ form input::-webkit-input-placeholder {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  padding: 0.3rem 0;
-}
-
-.task-container .task-action-btns button i {
-  padding: 0.6rem;
+  padding: 0.6rem 0;
 }
 
 .task-container .task-action-btns button:last-child {
@@ -176,6 +176,10 @@ form input::-webkit-input-placeholder {
 .edit-task-form {
   flex: 1;
   display: flex;
+}
+
+.task-container .task-action-btns button i {
+  font-size: 1.2rem;
 }
 
 .task-container.edit-mode {
