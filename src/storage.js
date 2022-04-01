@@ -1,5 +1,4 @@
 const storage = {
-  //  function manupilate the local storage
   get: (key) => {
     const value = localStorage.getItem(key);
     return value ? JSON.parse(value) : null;
