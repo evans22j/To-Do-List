@@ -102,7 +102,7 @@ input::placeholder {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr;
-  background-color: whitesmoke;
+  background-color: rgb(226, 222, 222);
   row-gap: 2px;
 }
 
