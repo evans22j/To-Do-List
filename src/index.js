@@ -1,37 +1,73 @@
+import * as task from './populate.js';
+import * as stat from './status.js';
 import './style.css';
-import storage from './storage.js';
-import taskActions from './taskActions.js';
-import dom from './dom.js';
-import task from './Task.js';
 
-const form = document.getElementById('form');
-const todoTextInput = document.getElementById('add-book');
+let list = [];
+const listEl = document.querySelector('ul');
 
-const getDefaultTasks = () => {
-  const tasks = task.get();
-  const storedTasks = storage.get('tasks');
-  if (storedTasks) {
-    storedTasks.map((t) => task.add(t));
-    dom.renderTasks(storedTasks);
-  } else {
-    storage.set('tasks', tasks);
-    dom.renderTasks(tasks);
+function todoList() {
+  if (window.localStorage.getItem('localTasks')) {
+    const localTasks = window.localStorage.getItem('localTasks');
+    list = JSON.parse(localTasks);
   }
-};
+  document.querySelector('.todo-list').innerHTML = '';
+  list.forEach((item) => {
+    const taskElement = document.createElement('li');
+    taskElement.classList.add('task');
+    if (item.isCompleted) {
+      taskElement.classList.add('completed');
+    }
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.classList.add('task-check');
+    checkbox.addEventListener('click', () => {
+      stat.status(item, list);
+      todoList();
+    });
+    checkbox.checked = item.isCompleted;
+    taskElement.appendChild(checkbox);
+    const taskText = document.createElement('input');
+    taskText.classList = 'task-text';
+    taskText.value = item.description;
+    taskText.addEventListener('change', () => {
+      if (taskText.value.length > 0) {
+        item.description = taskText.value;
+        stat.saveLocal(list);
+      }
+    });
+    taskElement.appendChild(taskText);
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const savedTask = taskActions.addTask(todoTextInput.value);
-  task.add(savedTask);
-  const tasks = task.get();
-  dom.renderTasks(tasks);
-  todoTextInput.value = '';
+    const dragIcon = document.createElement('button');
+    dragIcon.classList = 'far fa-trash-alt deleteBtn';
+    taskElement.appendChild(dragIcon);
+    taskElement.draggable = 'true';
+    document.querySelector('.todo-list').appendChild(taskElement);
+  });
+}
+
+function removeItem(e) {
+  if (!e.target.classList.contains('deleteBtn')) {
+    return;
+  }
+  const btn = e.target;
+  list.forEach((task) => {
+    if (task.description === btn.parentElement.children[1].value) {
+      list.splice(list.indexOf(task), 1);
+    }
+  });
+  btn.closest('li').remove();
+  task.updateIndex(list);
+  stat.saveLocal(list);
+}
+
+listEl.addEventListener('click', removeItem);
+todoList();
+document.querySelector('#taskForm').addEventListener('submit', (event) => {
+  event.preventDefault();
+  task.add(list);
+  todoList();
 });
-
-getDefaultTasks();
-dom.updateUI(storage.get('tasks'));
-dom.showTrashIcon();
-dom.editTastSubmit(task);
-dom.completeTaskHandler();
-dom.deleteTaskHandler();
-dom.clearCompletedHandler();
+document.querySelector('.clearer').addEventListener('click', () => {
+  task.removeDone(list);
+  todoList();
+});
