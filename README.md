@@ -12,8 +12,6 @@
 > | -------------------------------- |
 > | ![Screenshot1](./add-remove.png) |
 
-## Live Demo:
-
 
 ## Live Demo
 [Click Here to view live version](https://lambent-hamster-121a58.netlify.app/)
