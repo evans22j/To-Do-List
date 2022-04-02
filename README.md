@@ -8,9 +8,15 @@
 
 - Page view:
 
-> | To Do List                                                                                                            |
-> | --------------------------------------------------------------------------------------------------------------------- |
-> | ![Screenshot1](https://user-images.githubusercontent.com/79058364/134364133-16b1160b-8975-4820-a3d7-ebe8acd72db0.png) |
+> | To Do List                       |
+> | -------------------------------- |
+> | ![Screenshot1](./add-remove.png) |
+
+## Live Demo:
+
+
+## Live Demo
+[Click Here to view live version](https://lambent-hamster-121a58.netlify.app/)
 
 > Learning objectives:
 
